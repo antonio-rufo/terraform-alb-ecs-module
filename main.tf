@@ -2,8 +2,9 @@
 # S3 BUCKET - For access logs
 ###############################################################################
 resource "aws_s3_bucket" "logs" {
-  bucket = "${var.name_prefix}-lb-logs"
-  acl    = "log-delivery-write"
+  bucket        = "${var.name_prefix}-lb-logs"
+  acl           = "log-delivery-write"
+  force_destroy = var.force_destroy_log_bucket
   tags = {
     Name = "${var.name_prefix}-lb-logs"
   }
